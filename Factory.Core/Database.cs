@@ -11,12 +11,12 @@ public class Database
     /// <summary>
     /// Lista nagłówków.
     /// </summary>
-    public List<ITableHeader> headers;
+    private List<ITableHeader> headers;
 
     /// <summary>
     /// Wiersz z danymi(mogą być różnego typów).
     /// </summary>
-    public List<List<ITableData>> data;
+    private List<List<ITableData>> data;
 
     /// <summary>
     /// Konstruktor klasy Database.
@@ -54,29 +54,26 @@ public class Database
     }
 
     /// <summary>
-    /// Pobranie ilości wierszy.
+    /// Pobranie tablicy z nagłówkami.
     /// </summary>
-    /// <returns>Ilość wierszy.</returns>
-    public int getRowCount() => data.Count();
+    /// <returns></returns>
+    public List<ITableHeader> GetHeaders() => this.headers;
 
     /// <summary>
-    /// Pobranie ilości kolumn.
+    /// Pobranie tablicy z danymi.
     /// </summary>
-    /// <returns>Ilość kolumn.</returns>
-    public int getColumnCount() => headers.Count();
+    /// <returns></returns>
+    public List<List<ITableData>> GetData() => this.data;
 
     /// <summary>
-    /// Pobierz nazwe kolumny.
+    /// Wyczyszczenie tablicy z nagłówkami.
     /// </summary>
-    /// <param name="column">Index kolumny.</param>
-    /// <returns>Nazwa kolumny.</returns>
-    public string? getColumnName(int column) => column < headers.Count ? headers[column].ToString() : "No_Data";
+    /// <returns></returns>
+    public void ClearHeaders() => this.headers.Clear();
 
     /// <summary>
-    /// Pobranie wartości przecowywanej wartości w kolumnie i wierszu.
+    /// Wyczyszczenie tablicy z danymi.
     /// </summary>
-    /// <param name="row">Indeks wiersza.</param>
-    /// <param name="column">Index kolumny.</param>
-    /// <returns>Obiekt danych.</returns>
-    public object getValueAt(int row, int column) => data[row][column];
+    /// <returns></returns>
+    public void ClearData() => this.data.Clear();
 }
