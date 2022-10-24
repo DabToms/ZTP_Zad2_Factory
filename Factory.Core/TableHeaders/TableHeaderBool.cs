@@ -1,7 +1,7 @@
 ﻿using Factory.Core.TableDatas;
 
 namespace Factory.Core.TableHeaders;
-public class TableHeaderBool : TableHeader
+public class TableHeaderBool : AbstractTableHeader
 {
     public TableHeaderBool()
     {

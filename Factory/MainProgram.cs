@@ -27,7 +27,7 @@ public partial class MainProgram : Form
     /// <param name="e"></param>
     private void AddRow_Click(object sender, EventArgs e)
     {
-        if (database.headers.Count() != 0)
+        if (database.GetHeaders().Count() != 0)
         {
             database.addRow();
             this.ReloadTable();
@@ -65,13 +65,14 @@ public partial class MainProgram : Form
         DataBox.Items.Clear();
 
         string headers = "";
-        foreach (var i in database.headers)
+        foreach (var i in database.GetHeaders())
         {
             headers += i.ToString() + "\t";
         }
         headers.TrimEnd();
         DataBox.Items.Add(headers);
-        foreach (var i in database.data)
+
+        foreach (var i in database.GetData())
         {
             var data = "";
             i.ForEach(x => data += x.ToString() + "\t");
@@ -85,7 +86,7 @@ public partial class MainProgram : Form
     private void ClearTable()
     {
         DataBox.Items.Clear();
-        database.headers.Clear();
-        database.data.Clear();
+        database.ClearData();
+        database.ClearHeaders();
     }
 }

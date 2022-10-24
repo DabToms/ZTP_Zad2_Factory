@@ -5,7 +5,7 @@ namespace Factory.Core.TableHeaders;
 /// <summary>
 /// Klasa nagłówka kolumny implementującej metodę fbrykującą.
 /// </summary>
-public abstract class TableHeader : ITableHeader
+public abstract class AbstractTableHeader : ITableHeader
 {
     /// <summary>
     /// Nazwa typu.
@@ -15,7 +15,7 @@ public abstract class TableHeader : ITableHeader
     /// <summary>
     /// Konstruktor kolumny implementującej metodę fbrykującą.
     /// </summary>
-    public TableHeader()
+    public AbstractTableHeader()
     {
         type = "null";
     }

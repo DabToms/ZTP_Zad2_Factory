@@ -65,7 +65,7 @@ public partial class PopupForm : Form
             }
             else
             {
-                this.DataBase.addCol((TableHeader)TypeHolder.SelectedItem);
+                this.DataBase.addCol((AbstractTableHeader)TypeHolder.SelectedItem);
             }
             Close();
         }
@@ -79,7 +79,7 @@ public partial class PopupForm : Form
         // użycie prototypu
         if (usePrototype)
         {
-            TypeHolder.Items.AddRange(new TableHeaderPrototype[] {
+            TypeHolder.Items.AddRange(new ITableHeader[] {
                         new TableHeaderPrototype(new TableDataInt()),
                         new TableHeaderPrototype(new TableDataBool()),
                         new TableHeaderPrototype(new TableDataChar()),
@@ -89,7 +89,7 @@ public partial class PopupForm : Form
         // użycie metody fabrykującej
         else
         {
-            TypeHolder.Items.AddRange(new TableHeader[] {
+            TypeHolder.Items.AddRange(new ITableHeader[] {
                         new TableHeaderInt(),
                         new TableHeaderDouble(),
                         new TableHeaderChar(),
