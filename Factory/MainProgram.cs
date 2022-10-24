@@ -41,7 +41,7 @@ public partial class MainProgram : Form
     /// <param name="e"></param>
     private void AddCollumn_Click(object sender, EventArgs e)
     {
-        var formPopup = new PopupForm(database,UsePrototype.Checked);
+        var formPopup = new PopupForm(database);
         formPopup.ShowDialog(this);
 
         this.ReloadTable();
@@ -71,6 +71,7 @@ public partial class MainProgram : Form
         }
         headers.TrimEnd();
         DataBox.Items.Add(headers);
+
         foreach (var i in database.data)
         {
             var data = "";

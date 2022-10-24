@@ -19,12 +19,6 @@ public class TableDataInt : AbstractTableData
     }
 
     /// <inheritdoc />
-    public override ITableData CreateData()
-    {
-        return this;
-    }
-
-    /// <inheritdoc />
     public override string GetDataType()
     {
         return typeof(int).ToString().Split('.')[1].ToUpper();

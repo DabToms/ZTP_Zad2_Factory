@@ -5,7 +5,7 @@ namespace Factory.Core.TableHeaders;
 /// <summary>
 /// Klasa nagłówka kolumny implementującej metodę fbrykującą.
 /// </summary>
-public abstract class TableHeader : ITableHeader
+public abstract class AbstractTableHeader : ITableHeader
 {
     /// <summary>
     /// Nazwa typu.
@@ -13,9 +13,9 @@ public abstract class TableHeader : ITableHeader
     protected string type;
 
     /// <summary>
-    /// Konstruktor kolumny implementującej metodę fbrykującą.
+    /// Konstruktor kolumny implementującej metodę fabrykującą.
     /// </summary>
-    public TableHeader()
+    public AbstractTableHeader()
     {
         type = "null";
     }
@@ -24,15 +24,5 @@ public abstract class TableHeader : ITableHeader
     /// Pobranie nazwy typu.
     /// </summary>
     /// <returns>Nazwa typu.</returns>
-    public override string ToString() => type.Split('.')[1].ToUpper();
-
-
-    /// <inheritdoc />
-    public abstract ITableData CreateData();
-
-    /// <inheritdoc />
-    public ITableData Clone()
-    {
-        throw new NotImplementedException();
-    }
+    public override string ToString() => type;
 }

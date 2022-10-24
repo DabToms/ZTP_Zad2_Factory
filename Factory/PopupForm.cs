@@ -15,11 +15,6 @@ public partial class PopupForm : Form
     Database DataBase;
 
     /// <summary>
-    /// Flaga czy używamy metody fabrykującej, czy prototypu.
-    /// </summary>
-    bool usePrototype;
-
-    /// <summary>
     /// Inicjalizacjia klasy.
     /// </summary>
     public PopupForm()
@@ -32,10 +27,9 @@ public partial class PopupForm : Form
     /// <summary>
     /// Inicjalizacjia klasy.
     /// </summary>
-    public PopupForm(Database db, bool usePrototype)
+    public PopupForm(Database db)
     {
         this.DataBase = db;
-        this.usePrototype = usePrototype;
         InitializeComponent();
         this.InitData();
     }
@@ -59,14 +53,7 @@ public partial class PopupForm : Form
     {
         if (TypeHolder.SelectedItem != null)
         {
-            if (usePrototype)
-            {
-                this.DataBase.addCol((TableHeaderPrototype)TypeHolder.SelectedItem);
-            }
-            else
-            {
-                this.DataBase.addCol((TableHeader)TypeHolder.SelectedItem);
-            }
+            this.DataBase.addCol((AbstractTableHeader)TypeHolder.SelectedItem);
             Close();
         }
     }
@@ -76,25 +63,11 @@ public partial class PopupForm : Form
     /// </summary>
     private void InitData()
     {
-        // użycie prototypu
-        if (usePrototype)
-        {
-            TypeHolder.Items.AddRange(new TableHeaderPrototype[] {
-                        new TableHeaderPrototype(new TableDataInt()),
-                        new TableHeaderPrototype(new TableDataBool()),
-                        new TableHeaderPrototype(new TableDataChar()),
-                        new TableHeaderPrototype(new TableDataDouble()),
+        TypeHolder.Items.AddRange(new ITableHeader[] {
+                        new TableHeader("INT"),
+                        new TableHeader("CHAR"),
+                        new TableHeader("DOUBLE"),
+                        new TableHeader("BOOL"),
                     });
-        }
-        // użycie metody fabrykującej
-        else
-        {
-            TypeHolder.Items.AddRange(new TableHeader[] {
-                        new TableHeaderInt(),
-                        new TableHeaderDouble(),
-                        new TableHeaderChar(),
-                        new TableHeaderBool(),
-                    });
-        }
     }
 }

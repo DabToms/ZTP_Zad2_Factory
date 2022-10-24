@@ -35,14 +35,7 @@ public class Database
         List<ITableData> row = new List<ITableData>();
         foreach (var col in headers)
         {
-            if (col is TableHeaderPrototype)
-            {
-                row.Add(col.Clone()); // wywołanie metody klonującej
-            }
-            else
-            {
-                row.Add(col.CreateData()); // wywołanie metody fabrykującej
-            }
+                row.Add(new TableDataInt()); // wywołanie metody fabrykującej
         }
         data.Add(row);
     }
@@ -51,25 +44,12 @@ public class Database
     /// Dodanie kolumny.
     /// </summary>
     /// <param name="type">Nagłówek przechowujący typ.</param>
-    public void addCol(TableHeader type)
+    public void addCol(AbstractTableHeader type)
     {
         headers.Add(type);
         foreach (var row in data)
         {
-            row.Add(type.CreateData()); // wywołanie metody fabrykującej
-        }
-    }
-
-    /// <summary>
-    /// Dodanie kolumny.
-    /// </summary>
-    /// <param name="type">Nagłówke przechowujący typ.</param>
-    public void addCol(TableHeaderPrototype type)
-    {
-        headers.Add(type);
-        foreach (var row in data)
-        {
-            row.Add(type.Clone()); // wywołanie metody klonującej
+            row.Add(new TableDataInt()); // wywołanie metody fabrykującej
         }
     }
 

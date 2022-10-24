@@ -12,15 +12,4 @@ public abstract class AbstractTableData : ITableData
 
     /// <inheritdoc />
     public abstract string GetDataType();
-
-
-    /// <inheritdoc />
-    public abstract ITableData CreateData();
-
-
-    /// <inheritdoc />
-    public object Clone()
-    {
-      return base.MemberwiseClone();
-    }
 }

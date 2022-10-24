@@ -32,7 +32,6 @@ partial class MainProgram
             this.AddCollumn = new System.Windows.Forms.Button();
             this.DataBox = new System.Windows.Forms.ListBox();
             this.Clear = new System.Windows.Forms.Button();
-            this.UsePrototype = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // AddRow
@@ -74,27 +73,15 @@ partial class MainProgram
             this.Clear.UseVisualStyleBackColor = true;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
-            // checkBox1
-            // 
-            this.UsePrototype.AutoSize = true;
-            this.UsePrototype.Location = new System.Drawing.Point(564, 26);
-            this.UsePrototype.Name = "checkBox1";
-            this.UsePrototype.Size = new System.Drawing.Size(162, 19);
-            this.UsePrototype.TabIndex = 5;
-            this.UsePrototype.Text = "Czy wykożystać prototyp?";
-            this.UsePrototype.UseVisualStyleBackColor = true;
-            // 
             // MainProgram
             // 
             this.ClientSize = new System.Drawing.Size(727, 304);
-            this.Controls.Add(this.UsePrototype);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.DataBox);
             this.Controls.Add(this.AddCollumn);
             this.Controls.Add(this.AddRow);
             this.Name = "MainProgram";
             this.ResumeLayout(false);
-            this.PerformLayout();
 
     }
 
@@ -104,5 +91,4 @@ partial class MainProgram
     private Button AddCollumn;
     private ListBox DataBox;
     private Button Clear;
-    private CheckBox UsePrototype;
 }
